@@ -80,7 +80,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gfs-LZ-JmS">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selectimage" translatesAutoresizingMaskIntoConstraints="NO" id="gfs-LZ-JmS">
                                 <rect key="frame" x="20" y="44" width="374" height="640"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="640" id="ANA-6e-EFH"/>
@@ -166,15 +166,54 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ifi-zm-4CU">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="646" id="kag-L4-weY" customClass="FeedCell" customModule="SnapchatClone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="646"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kag-L4-weY" id="96P-eW-NTT">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="646"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J53-Nk-305">
+                                                    <rect key="frame" x="47" y="25" width="320" height="49"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="320" id="X75-q6-J90"/>
+                                                        <constraint firstAttribute="height" constant="49" id="bGF-fr-BSN"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0gY-Xk-iS9">
+                                                    <rect key="frame" x="31.5" y="82" width="351" height="533"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="351" id="D3v-bu-upI"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0gY-Xk-iS9" secondAttribute="bottom" constant="20" id="9Ho-Nw-ueJ"/>
+                                                <constraint firstItem="0gY-Xk-iS9" firstAttribute="top" secondItem="J53-Nk-305" secondAttribute="bottom" constant="8" id="CZh-Ro-XlF"/>
+                                                <constraint firstItem="J53-Nk-305" firstAttribute="top" secondItem="96P-eW-NTT" secondAttribute="topMargin" constant="14" id="NAy-sR-0MO"/>
+                                                <constraint firstItem="J53-Nk-305" firstAttribute="centerX" secondItem="0gY-Xk-iS9" secondAttribute="centerX" id="Yns-ps-sjx"/>
+                                                <constraint firstItem="J53-Nk-305" firstAttribute="centerX" secondItem="96P-eW-NTT" secondAttribute="centerX" id="lzS-mp-Wjz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="feedImageView" destination="0gY-Xk-iS9" id="9hx-CO-JHt"/>
+                                            <outlet property="feedUsernameLabel" destination="J53-Nk-305" id="LE4-xW-CS3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mwx-27-PiZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ifi-zm-4CU" firstAttribute="leading" secondItem="Mwx-27-PiZ" secondAttribute="leading" id="37C-Ak-d6G"/>
-                            <constraint firstItem="Mwx-27-PiZ" firstAttribute="trailing" secondItem="ifi-zm-4CU" secondAttribute="trailing" id="H5z-xa-ciK"/>
-                            <constraint firstItem="Mwx-27-PiZ" firstAttribute="bottom" secondItem="ifi-zm-4CU" secondAttribute="bottom" id="ZcK-Q7-kDN"/>
-                            <constraint firstItem="ifi-zm-4CU" firstAttribute="top" secondItem="Mwx-27-PiZ" secondAttribute="top" id="l1h-vd-f4g"/>
+                            <constraint firstItem="ifi-zm-4CU" firstAttribute="centerX" secondItem="6t9-3J-uQs" secondAttribute="centerX" id="2du-Po-H43"/>
+                            <constraint firstItem="ifi-zm-4CU" firstAttribute="leading" secondItem="Mwx-27-PiZ" secondAttribute="leading" id="JuL-Bm-WWl"/>
+                            <constraint firstItem="ifi-zm-4CU" firstAttribute="top" secondItem="Mwx-27-PiZ" secondAttribute="top" id="NLv-cu-hC3"/>
+                            <constraint firstItem="ifi-zm-4CU" firstAttribute="bottom" secondItem="Mwx-27-PiZ" secondAttribute="bottom" id="qnL-Rj-W7w"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="square.grid.3x3.fill" catalog="system" id="jXK-ac-Kay"/>
@@ -185,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smH-Ff-Cco" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688" y="-209"/>
+            <point key="canvasLocation" x="1686.9565217391305" y="-209.59821428571428"/>
         </scene>
         <!--SnapVC-->
         <scene sceneID="doA-Jz-CrS">
@@ -242,6 +281,7 @@
     </scenes>
     <resources>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="selectimage" width="350" height="500"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="square.grid.3x3.fill" catalog="system" width="128" height="112"/>
         <systemColor name="systemBackgroundColor">
