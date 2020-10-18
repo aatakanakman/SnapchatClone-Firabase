@@ -20,7 +20,7 @@ class FeedVC: UIViewController , UITableViewDelegate , UITableViewDataSource {
     
     var snapArray = [Snap]()
     var chosenSnap : Snap?
-    var timeLeft : Int?
+    //var timeLeft : Int?
     
     
     override func viewDidLoad() {
@@ -65,14 +65,11 @@ class FeedVC: UIViewController , UITableViewDelegate , UITableViewDataSource {
                                                 
                                             }
                                         }else {
+                                            
                                             let snap = Snap(username: username, imageUrlArray: imageUrlArray, date: date.dateValue(), timeDifference: 24 - difference)
                                              self.snapArray.append(snap)
-
+                                            
                                         }
-                                        
-                                        //Timeleft -> SnapVC
-                                        self.timeLeft = 24 - difference
-                                    
                                     }
                                 }
                             }
@@ -124,7 +121,7 @@ class FeedVC: UIViewController , UITableViewDelegate , UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FeedCell
         
         cell.feedUsernameLabel.text = snapArray[indexPath.row].username
-        cell.feedImageView.sd_setImage(with:URL(string: snapArray[indexPath.row].imageUrlArray[0]))
+        cell.feedImageView.sd_setImage(with:URL(string: snapArray[indexPath.row].imageUrlArray.last!))
         
         return cell
     }
@@ -135,7 +132,7 @@ class FeedVC: UIViewController , UITableViewDelegate , UITableViewDataSource {
         if segue.identifier == "toSnapVC" {
             let destinationVC = segue.destination as! SnapVC
             destinationVC.selectedSnap = chosenSnap
-            destinationVC.selectedTime = self.timeLeft
+            //destinationVC.selectedTime = self.timeLeft
         }
     }
     
@@ -144,4 +141,5 @@ class FeedVC: UIViewController , UITableViewDelegate , UITableViewDataSource {
         performSegue(withIdentifier: "toSnapVC", sender: nil)
         
     }
+    
 }
